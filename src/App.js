@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from 'antd';
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SiderComponent from './components/SiderComponent';
+import ProfileScreen from './screens/ProfileScreen';
+import Dashboard from './screens/Dashboard';
+import ReceiptScreen from './screens/ReceiptScreen';
+import PaymentScreen from './screens/PaymentScreen';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const { Content, Sider } = Layout;
 
-export default App;
+    const App = () => {
+      return (
+        <BrowserRouter>
+          <Layout>
+            <SiderComponent />
+    
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/profile" element={<ProfileScreen />} />
+              <Route path="/receipt" element={<ReceiptScreen />} />
+              <Route path="/payment" element={<PaymentScreen />} />
+            </Routes>
+    
+          </Layout>
+        </BrowserRouter>
+      );
+    };
+
+export default App
