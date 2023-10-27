@@ -1,9 +1,9 @@
 import { Layout, Menu } from "antd";
 import {
   WalletMoney,
-  MoneyRecive,
   Element4,
   Profile2User,
+  Setting2,
 } from "iconsax-react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -27,14 +27,14 @@ const SiderComponent = () => {
       label: "Profile",
     },
     {
-      key: "receipt",
-      icon: <MoneyRecive size={menuOptions.size} color={menuOptions.color} />,
-      label: "Receipt",
+      key: "wallet",
+      icon: <WalletMoney size={menuOptions.size} color={menuOptions.color} />,
+      label: "Wallet",
     },
     {
-      key: "payment",
-      icon: <WalletMoney size={menuOptions.size} color={menuOptions.color} />,
-      label: "Payment",
+      key: "setting",
+      icon: <Setting2 style={{alignItems:'end'}} size={menuOptions.size} color={menuOptions.color} />,
+      label: "Setting",
     },
   ];
   return (

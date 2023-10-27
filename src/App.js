@@ -4,8 +4,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SiderComponent from './components/SiderComponent';
 import ProfileScreen from './screens/ProfileScreen';
 import Dashboard from './screens/Dashboard';
-import ReceiptScreen from './screens/ReceiptScreen';
-import PaymentScreen from './screens/PaymentScreen';
+import WalletScreen from './screens/WalletScreen';
+import SettingScreen from './screens/SettingScreen';
 
 const { Content, Sider } = Layout;
 
@@ -18,8 +18,8 @@ const { Content, Sider } = Layout;
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/profile" element={<ProfileScreen />} />
-              <Route path="/receipt" element={<ReceiptScreen />} />
-              <Route path="/payment" element={<PaymentScreen />} />
+              <Route path="/wallet" element={<WalletScreen />} />
+              <Route path="/setting" element={<SettingScreen />} />
             </Routes>
     
           </Layout>
