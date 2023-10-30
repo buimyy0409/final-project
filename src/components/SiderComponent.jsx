@@ -38,10 +38,9 @@ const SiderComponent = () => {
     },
   ];
   return (
-    <Sider
+    <Sider className="container-fluid"
       theme="light"
       style={{
-        height: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: 'center',

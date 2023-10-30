@@ -2,6 +2,8 @@ import { Button, Card, List } from "antd";
 import React, { useEffect, useState } from "react";
 import ToggleAddPayment from "../modal/ToggleAddPayment";
 import ToggleAddReceipt from "../modal/ToggleAddReceipt";
+import UpdateTotalReceipt from "../components/UpdateTotalReceipt";
+import UpdateTotalPayment from "../components/UpdateTotalPayment";
 
 const WalletScreen = () => {
   const [isVisibleModalPayment, setIsVisibleModalPayment] = useState(false);
@@ -13,7 +15,6 @@ const WalletScreen = () => {
   useEffect(() => {
     getAllReceipt();
   }, []);
-  
 
   const getAllReceipt = async () => {
     const res = await localStorage.getItem("receipt");
@@ -54,20 +55,27 @@ const WalletScreen = () => {
   return (
     <div className="container row">
       <Card className="col">
-        <Button type="primary" onClick={() => setIsVisibleModalReceipt(true)}>
-          Add new receipt
-        </Button>
-          <List
-            itemLayout="vertical"
-            loading={isLoading}
-            dataSource={receipt}
-            renderItem={(item) => (
-              <List.Item key={`${item.name}`}>
-                <List.Item.Meta title={item.receipt} description={item.money} />
-                <span>{item.date}</span>
-              </List.Item>
-            )}
-          />
+        <div className="row">
+          <div className="col">
+          <Button type="primary" onClick={() => setIsVisibleModalReceipt(true)}>
+            Add new receipt
+          </Button>
+          </div>
+          <div className="col">
+          <UpdateTotalReceipt/>
+          </div>
+        </div>
+        <List
+          itemLayout="vertical"
+          loading={isLoading}
+          dataSource={receipt}
+          renderItem={(item) => (
+            <List.Item key={`${item.name}`}>
+              <List.Item.Meta title={item.receipt} description={item.money} />
+              <span>{item.date}</span>
+            </List.Item>
+          )}
+        />
 
         <ToggleAddReceipt
           isVisible={isVisibleModalReceipt}
@@ -76,20 +84,28 @@ const WalletScreen = () => {
         />
       </Card>
       <Card className="col">
-        <Button type="primary" onClick={() => setIsVisibleModalPayment(true)}>
+      <div className="row">
+          <div className="col">
+          <Button type="primary" onClick={() => setIsVisibleModalPayment(true)}>
           Add new payment
         </Button>
+          </div>
+          <div className="col">
+            <UpdateTotalPayment/>
+          </div>
+        </div>
+        
         <List
-            itemLayout="vertical"
-            loading={isLoading}
-            dataSource={payment}
-            renderItem={(item) => (
-              <List.Item key={`${item.name}`}>
-                <List.Item.Meta title={item.payment} description={item.money} />
-                <span>{item.date}</span>
-              </List.Item>
-            )}
-          />
+          itemLayout="vertical"
+          loading={isLoading}
+          dataSource={payment}
+          renderItem={(item) => (
+            <List.Item key={`${item.name}`}>
+              <List.Item.Meta title={item.payment} description={item.money} />
+              <span>{item.date}</span>
+            </List.Item>
+          )}
+        />
         <ToggleAddPayment
           isVisible={isVisibleModalPayment}
           onClose={() => setIsVisibleModalPayment(false)}
