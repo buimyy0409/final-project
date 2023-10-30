@@ -1,63 +1,102 @@
-import { Button, Card } from 'antd';
-import React, { useEffect, useState } from 'react'
-import ToggleAddPayment from '../modal/ToggleAddPayment';
+import { Button, Card, List } from "antd";
+import React, { useEffect, useState } from "react";
+import ToggleAddPayment from "../modal/ToggleAddPayment";
+import ToggleAddReceipt from "../modal/ToggleAddReceipt";
 
 const WalletScreen = () => {
-  const [isVisibleModalWallet, setIsVisibleModalWallet] = useState(false);
-  const [wallet, setWallet] = useState();
-  const [categories, setCategories] = useState([]);
+  const [isVisibleModalPayment, setIsVisibleModalPayment] = useState(false);
+  const [isVisibleModalReceipt, setIsVisibleModalReceipt] = useState(false);
+  const [receipt, setReceipt] = useState([]);
+  const [payment, setPayment] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    getAllCategories();
+    getAllReceipt();
   }, []);
+  
 
-  const getAllCategories = async () => {
-    const res = await localStorage.getItem("categories");
-    res && setCategories(JSON.parse(res));
+  const getAllReceipt = async () => {
+    const res = await localStorage.getItem("receipt");
+    res && setReceipt(JSON.parse(res));
   };
 
-  const handleAddNewWallet = async (values) => {
-    if (values) {
-      const items = [...categories];
+  const handleAddNewReceipt = async (values) => {
+    console.log(values);
+    if (values.receipt) {
+      const items = [...receipt];
       items.push(values);
 
-      
-      await localStorage.setItem("categories", JSON.stringify(items));
-      getAllCategories();
+      await localStorage.setItem("receipt", JSON.stringify(items));
+      getAllReceipt();
     }
   };
+
+  useEffect(() => {
+    getAllPayment();
+  }, []);
+
+  const getAllPayment = async () => {
+    const res = await localStorage.getItem("payment");
+    res && setPayment(JSON.parse(res));
+  };
+
+  const handleAddNewPayment = async (values) => {
+    console.log(values);
+    if (values.payment) {
+      const items = [...payment];
+      items.push(values);
+
+      await localStorage.setItem("payment", JSON.stringify(items));
+      getAllPayment();
+    }
+  };
+
   return (
     <div className="container row">
-      <Card className='col p-2'>
-        <Button
-          type="primary"
-          onClick={() => setIsVisibleModalWallet(true)}
-        >
+      <Card className="col">
+        <Button type="primary" onClick={() => setIsVisibleModalReceipt(true)}>
           Add new receipt
         </Button>
-      <ToggleAddPayment
-        isVisible={isVisibleModalWallet}
-        onClose={() => setIsVisibleModalWallet(false)}
-        // wallet={wallet}
-        // onSaveData={(vals) => handleAddNewWallet(vals)}
-      />
+          <List
+            itemLayout="vertical"
+            loading={isLoading}
+            dataSource={receipt}
+            renderItem={(item) => (
+              <List.Item key={`${item.name}`}>
+                <List.Item.Meta title={item.receipt} description={item.money} />
+                <span>{item.date}</span>
+              </List.Item>
+            )}
+          />
+
+        <ToggleAddReceipt
+          isVisible={isVisibleModalReceipt}
+          onClose={() => setIsVisibleModalReceipt(false)}
+          onSaveData={(vals) => handleAddNewReceipt(vals)}
+        />
       </Card>
-      <Card className='col'>
-        <Button
-          type="primary"
-          onClick={() => setIsVisibleModalWallet(true)}
-        >
+      <Card className="col">
+        <Button type="primary" onClick={() => setIsVisibleModalPayment(true)}>
           Add new payment
         </Button>
-      <ToggleAddPayment
-        isVisible={isVisibleModalWallet}
-        onClose={() => setIsVisibleModalWallet(false)}
-        // wallet={wallet}
-        // onSaveData={(vals) => handleAddNewWallet(vals)}
-      />
+        <List
+            itemLayout="vertical"
+            loading={isLoading}
+            dataSource={payment}
+            renderItem={(item) => (
+              <List.Item key={`${item.name}`}>
+                <List.Item.Meta title={item.payment} description={item.money} />
+                <span>{item.date}</span>
+              </List.Item>
+            )}
+          />
+        <ToggleAddPayment
+          isVisible={isVisibleModalPayment}
+          onClose={() => setIsVisibleModalPayment(false)}
+          onSaveData={(vals) => handleAddNewPayment(vals)}
+        />
       </Card>
     </div>
-  )
-}
-
-export default WalletScreen
+  );
+};
+export default WalletScreen;

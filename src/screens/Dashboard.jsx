@@ -9,20 +9,20 @@ const Dashboard = () => {
     <>
       <div className="container-fluid" style={{ backgroundColor: "#edf1f6" }}>
         <HeaderComponent />
-        <div className="row">
+        <div className="row mt-2">
           <div className="col-8">
-            <h5>Dashboard</h5>
-            <Card className="shadow p-3 bg-body rounded">
+            <h4>Dashboard</h4>
+            <Card className="shadow p-2 bg-body rounded">
               <div className="row">
                 <div className="col">
-                  <h1 style={{ fontSize: "70px" }}>Hi, Imei!</h1>
+                  <h1 style={{ fontSize: "60px" }}>Hi, Imei!</h1>
                   <h6>What are you doing today?</h6>
                   <div
                     style={{
                       display: "flex",
                       flexDirection: "column",
                       lineHeight: "50px",
-                      fontSize: "20px",
+                      fontSize: "18px",
                     }}
                   >
                     <Link to={"/profile"} style={{ textDecoration: "none" }}>
@@ -47,7 +47,7 @@ const Dashboard = () => {
                   <img
                     style={{
                       width: "80%",
-                      height: "100%",
+                      height: "90%",
                       borderRadius: "100%",
                     }}
                     src="https://i.pinimg.com/564x/db/fc/54/dbfc54ea5447860120435c549e276381.jpg"
@@ -56,17 +56,21 @@ const Dashboard = () => {
                 </div>
               </div>
             </Card>
-            <div className="row" style={{padding:'12px'}}>
-              <Card className="col mt-3 shadow p-3 mb-5 bg-body rounded">
-                <WalletMoney size="34" color="#FF8A65" /> <br/>
-                <p style={{fontSize:'18px'}}>Check out your monthly money</p>
+            <div className="row" style={{ padding: "12px" }}>
+              <Card className="col mt-3 shadow p-3 mb-3 bg-body rounded">
+                <WalletMoney size="34" color="#FF8A65" /> <br />
+                <p style={{ fontSize: "18px" }}>Check your monthly money</p>
               </Card>
-              <Card className="col mt-3" style={{marginLeft:'10px'}}>
-              <Setting3 size="34" color="#334eac"/> <br />
+              <Card className="col mt-3 shadow p-3 mb-3 bg-body rounded" style={{ marginLeft: "10px" }}>
+                <Setting3 size="34" color="#334eac" /> <br />
+                <p style={{ fontSize: "18px" }}>Apply settings to your wallet</p>
               </Card>
             </div>
           </div>
-          <div className="col bg-white">calendar</div>
+          <div className="col">
+            <h4>Calendar</h4>
+            <Card>calerdar</Card>
+          </div>
         </div>
       </div>
     </>

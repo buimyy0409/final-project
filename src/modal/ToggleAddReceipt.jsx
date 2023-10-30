@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { DatePicker, Form, Input, Modal } from "antd";
-const ToggleAddReceipt = ({ isVisible, onClose }) => {
+const ToggleAddReceipt = ({ isVisible, onClose, onSaveData }) => {
   const [componentSize, setComponentSize] = useState("default");
   const [form] = Form.useForm();
   const handleClose = () => {
@@ -9,7 +9,9 @@ const ToggleAddReceipt = ({ isVisible, onClose }) => {
   };
   const handleAddReceipt = (values) => {
     console.log(values);
+    onSaveData(values);
   };
+
 
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);

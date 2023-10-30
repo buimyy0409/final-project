@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
   return (
-    <div className="row mt-3">
-      <div className="col"></div>
-      <div className="col" style={{display:'flex', justifyContent:'right'}}>
+    <div className=" mt-3">
+      <div style={{display:'flex', justifyContent:'left'}}>
       <Link to={'/profile'}>
       <Space direction="vertical" size={16}>
         <Space wrap size={14}>
