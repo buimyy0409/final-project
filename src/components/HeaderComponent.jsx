@@ -1,27 +1,23 @@
-import { Avatar, Button, Dropdown, Input, Space } from 'antd'
-import { Link, SearchNormal1 } from 'iconsax-react'
-import React from 'react'
+import { Avatar, Space } from "antd";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const HeaderComponent = () => {
   return (
-    <div className='row'>
-        <div className='col' style={{padding: '0 15px'}}>
-          <Link to='/profile'>
-            <Button>
-            <Space>
-            <Avatar size={18}>IM</Avatar>
-            IMei Wallet
-            </Space>
-            </Button>
-            </Link>
-        </div>
-        <div className='col-3 p-3' style={{width:'60%'}}>
-            <Input style={{width:'60%'}} prefix={<SearchNormal1 size={18} color='#676767'/>}
-            placeholder='Search...'
-            bordered={false}/>
-        </div>
+    <div className="row mt-3">
+      <div className="col"></div>
+      <div className="col" style={{display:'flex', justifyContent:'right'}}>
+      <Link to={'/profile'}>
+      <Space direction="vertical" size={16}>
+        <Space wrap size={14}>
+          <Avatar size="large" icon={<img src="https://i.pinimg.com/564x/db/fc/54/dbfc54ea5447860120435c549e276381.jpg"/>} />
+          <h5>Imei Wallet</h5>
+        </Space>
+      </Space>
+      </Link>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default HeaderComponent
+export default HeaderComponent;

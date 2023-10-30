@@ -14,14 +14,12 @@ const { Content, Sider } = Layout;
         <BrowserRouter>
           <Layout>
             <SiderComponent />
-    
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/profile" element={<ProfileScreen />} />
               <Route path="/wallet" element={<WalletScreen />} />
               <Route path="/setting" element={<SettingScreen />} />
             </Routes>
-    
           </Layout>
         </BrowserRouter>
       );
