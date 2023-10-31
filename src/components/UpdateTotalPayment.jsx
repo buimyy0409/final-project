@@ -10,7 +10,11 @@ const UpdateTotalPayment = () => {
       total += parseInt(payment[i].money);
     }
     setTotalPayment(total);
-  }, [payment]);
+
+    localStorage.setItem("totalPayment", total.toString());
+  }, [totalPayment]);
+  console.log(totalPayment)
+
   return <div>Total Payment: {totalPayment}</div>;
 };
 

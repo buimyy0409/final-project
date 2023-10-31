@@ -39,12 +39,14 @@ const SiderComponent = () => {
   ];
   return (
     <Sider className="container-fluid"
+
       theme="light"
       style={{
         display: "flex",
         flexDirection: "column",
         alignItems: 'center',
         justifyContent: "space-around",
+        margin:'0'
       }}
     >
       <Menu items={items} onClick={(e) => navigate(`/${e.key}`)} />

@@ -34,6 +34,7 @@ const WalletScreen = () => {
 
   useEffect(() => {
     getAllPayment();
+    
   }, []);
 
   const getAllPayment = async () => {
@@ -61,9 +62,9 @@ const WalletScreen = () => {
             Add new receipt
           </Button>
           </div>
-          <div className="col">
-          <UpdateTotalReceipt/>
-          </div>
+
+          <UpdateTotalReceipt receipt={receipt}/>
+         
         </div>
         <List
           itemLayout="vertical"
@@ -90,9 +91,8 @@ const WalletScreen = () => {
           Add new payment
         </Button>
           </div>
-          <div className="col">
-            <UpdateTotalPayment/>
-          </div>
+          
+            <UpdateTotalPayment payment={payment}/>
         </div>
         
         <List
