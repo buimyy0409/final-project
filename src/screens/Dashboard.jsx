@@ -17,8 +17,8 @@ const Dashboard = () => {
               <div className="row">
                 <div className="col">
                   <h1 style={{ fontSize: "60px" }}>Hi, Imei!</h1>
-                  <h6>What are you doing today?</h6>
-                  <h6>About our wallet</h6>
+                  <h5>What are you doing?</h5>
+                  <h5>About our wallet</h5>
                   <div
                     style={{
                       display: "flex",
@@ -48,8 +48,8 @@ const Dashboard = () => {
                 >
                   <img
                     style={{
-                      width: "90%",
-                      height: "80%",
+                      width: "80%",
+                      height: "70%",
                       borderRadius: "100%",
                     }}
                     src="https://i.pinimg.com/564x/db/fc/54/dbfc54ea5447860120435c549e276381.jpg"
@@ -58,30 +58,38 @@ const Dashboard = () => {
                 </div>
               </div>
             </Card>
-            <div className="row mt-4" style={{ padding: "10px" }}>
+            <div className="row mt-2" style={{ padding: "10px" }}>
               <Card className="col mt-3 shadow p-3 mb-3 bg-body rounded">
                 <WalletMoney size="34" color="#FF8A65" /> <br />
                 <p style={{ fontSize: "18px" }}>Check your monthly money</p>
               </Card>
-              <Card className="col mt-3 shadow p-3 mb-3 bg-body rounded" style={{ marginLeft: "10px" }}>
+              <Card
+                className="col mt-3 shadow p-3 mb-3 bg-body rounded"
+                style={{ marginLeft: "10px" }}
+              >
                 <Setting3 size="34" color="#334eac" /> <br />
-                <p style={{ fontSize: "18px" }}>Apply settings to your wallet</p>
+                <p style={{ fontSize: "18px" }}>
+                  Apply settings to your wallet
+                </p>
               </Card>
             </div>
           </div>
           <div className="col">
             <h4>Calendar</h4>
             <div className="col shadow p-3 bg-body rounded">
-            <CalendarComponent /></div>
-            <Card width='330px'><img
-                    style={{
-                      width: "100%",
-                      height: "40%",
-                      borderRadius: "10px",
-                    }}
-                    src="https://i.pinimg.com/474x/e9/0e/9a/e90e9ac5dd1ace1f9611540827634741.jpg"
-                    alt=""
-                  /></Card>
+              <CalendarComponent />
+            </div>
+            <Card className="mt-2">
+              <img
+                style={{
+                  width: "350px",
+                  height:'140px',
+                  borderRadius: "10px",
+                }}
+                src="https://i.pinimg.com/474x/e9/0e/9a/e90e9ac5dd1ace1f9611540827634741.jpg"
+                alt=""
+              />
+            </Card>
           </div>
         </div>
       </div>
