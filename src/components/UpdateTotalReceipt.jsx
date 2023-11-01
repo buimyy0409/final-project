@@ -1,22 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-const UpdateTotalReceipt = () => {
+const UpdateTotalReceipt = ({ receipt }) => {
   const [totalReceipt, setTotalReceipt] = useState(0);
-  const [receipt, setReceipt] = useState([]);
 
   useEffect(() => {
-    let totalReceipt = 0;
-    for (let i = 0; i < receipt.length; i++) {
-      totalReceipt += parseInt(receipt[i].money);
-    }
-    setTotalReceipt(totalReceipt);
+    const calculatedTotalReceipt = receipt.reduce((acc, item) => acc + parseInt(item.money), 0);
+    setTotalReceipt(calculatedTotalReceipt);
+    localStorage.setItem("totalReceipt", calculatedTotalReceipt.toString());
   }, [receipt]);
-  console.log(totalReceipt)
 
-  return(
-    <>
-   <div>Total Payment: {totalReceipt}</div>
-   </>);
+  return <div>Total Receipt: {totalReceipt}</div>;
 };
 
 export default UpdateTotalReceipt;

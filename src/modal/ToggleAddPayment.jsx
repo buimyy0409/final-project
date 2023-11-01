@@ -17,7 +17,7 @@ const ToggleAddPayment = ({ isVisible, onClose, onSaveData }) => {
     setComponentSize(size);
   };
   return (
-    <Modal open={isVisible} onCancel={handleClose} onOk={() => {form.submit(); onClose()}}>
+    <Modal open={isVisible} onCancel={handleClose} onOk={() => form.submit()}>
       <Form
         form={form}
         onFinish={handleAddPayment}

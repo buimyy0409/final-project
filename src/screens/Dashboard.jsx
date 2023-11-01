@@ -3,6 +3,7 @@ import HeaderComponent from "../components/HeaderComponent";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import { ProfileCircle, Setting2, Setting3, WalletMoney } from "iconsax-react";
+import CalendarComponent from "../components/CalendarComponent";
 
 const Dashboard = () => {
   return (
@@ -10,13 +11,14 @@ const Dashboard = () => {
       <div className="container-fluid" style={{ backgroundColor: "#edf1f6" }}>
         <HeaderComponent />
         <div className="row mt-2">
-          <div className="col-8">
+          <div className="col-7">
             <h4>Dashboard</h4>
             <Card className="shadow p-2 bg-body rounded">
               <div className="row">
                 <div className="col">
                   <h1 style={{ fontSize: "60px" }}>Hi, Imei!</h1>
                   <h6>What are you doing today?</h6>
+                  <h6>About our wallet</h6>
                   <div
                     style={{
                       display: "flex",
@@ -46,8 +48,8 @@ const Dashboard = () => {
                 >
                   <img
                     style={{
-                      width: "80%",
-                      height: "90%",
+                      width: "90%",
+                      height: "80%",
                       borderRadius: "100%",
                     }}
                     src="https://i.pinimg.com/564x/db/fc/54/dbfc54ea5447860120435c549e276381.jpg"
@@ -56,7 +58,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </Card>
-            <div className="row" style={{ padding: "12px" }}>
+            <div className="row mt-4" style={{ padding: "10px" }}>
               <Card className="col mt-3 shadow p-3 mb-3 bg-body rounded">
                 <WalletMoney size="34" color="#FF8A65" /> <br />
                 <p style={{ fontSize: "18px" }}>Check your monthly money</p>
@@ -69,7 +71,17 @@ const Dashboard = () => {
           </div>
           <div className="col">
             <h4>Calendar</h4>
-            <Card>calerdar</Card>
+            <div className="col shadow p-3 bg-body rounded">
+            <CalendarComponent /></div>
+            <Card width='330px'><img
+                    style={{
+                      width: "100%",
+                      height: "40%",
+                      borderRadius: "10px",
+                    }}
+                    src="https://i.pinimg.com/474x/e9/0e/9a/e90e9ac5dd1ace1f9611540827634741.jpg"
+                    alt=""
+                  /></Card>
           </div>
         </div>
       </div>

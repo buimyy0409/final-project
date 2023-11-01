@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-const UpdateTotalPayment = () => {
+const UpdateTotalPayment = ({ payment }) => {
   const [totalPayment, setTotalPayment] = useState(0);
-  const [payment, setPayment] = useState([]);
 
   useEffect(() => {
-    let total = 0;
-    for (let i = 0; i < payment.length; i++) {
-      total += parseInt(payment[i].money);
-    }
-    setTotalPayment(total);
-
-    localStorage.setItem("totalPayment", total.toString());
-  }, [totalPayment]);
-  console.log(totalPayment)
+    const calculatedTotalPayment = payment.reduce((acc, item) => acc + parseInt(item.money), 0);
+    setTotalPayment(calculatedTotalPayment);
+    localStorage.setItem("totalPayment", calculatedTotalPayment.toString());
+  }, [payment]);
 
   return <div>Total Payment: {totalPayment}</div>;
 };
