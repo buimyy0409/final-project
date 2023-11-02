@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
-
-
+import { Card } from 'antd';
+import UpdateTotalPayment from '../components/UpdateTotalPayment';
+import UpdateTotalReceipt from '../components/UpdateTotalReceipt';
 
 const ProfileScreen = () => {
+  const [receipt, setReceipt] = useState([]);
+  const [payment, setPayment] = useState([]);
     const progressBarStyle = {
         width: '50%', 
     };
@@ -28,6 +31,17 @@ const ProfileScreen = () => {
     <h3>Imei Wallet</h3>
     <p>Manage your money monthly</p>
   </div>
+  <div className="row mt-2" style={{ padding: "10px" }}>
+              <Card className="col mt-3 shadow p-3 mb-3 bg-body rounded">
+              <UpdateTotalReceipt receipt={receipt} />
+              </Card>
+              <Card
+                className="col mt-3 shadow p-3 mb-3 bg-body rounded"
+                style={{ marginLeft: "10px" }}
+              >
+                <UpdateTotalPayment payment={payment} />
+              </Card>
+            </div>
   <div className="container bio">
       <div className="title">
         <h6>Biography</h6>
