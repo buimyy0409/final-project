@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import HeaderComponent from "../components/HeaderComponent";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import { ProfileCircle, Setting2, Setting3, WalletMoney } from "iconsax-react";
 import CalendarComponent from "../components/CalendarComponent";
+import UpdateWallet from "../components/UpdateWallet";
 
-const Dashboard = () => {
+
+const Dashboard = ({totalWallet}) => {
+  const [receipt, setReceipt] = useState([]);
+
+  const [payment, setPayment] = useState([]);
+
   return (
     <>
       <div className="container-fluid" style={{ backgroundColor: "#edf1f6" }}>
@@ -62,6 +68,11 @@ const Dashboard = () => {
               <Card className="col mt-3 shadow p-3 mb-3 bg-body rounded">
                 <WalletMoney size="34" color="#FF8A65" /> <br />
                 <p style={{ fontSize: "18px" }}>Check your monthly money</p>
+                <span><UpdateWallet
+                  receipt={receipt}
+                  payment={payment}
+                  totalWallet={totalWallet}
+                /></span>
               </Card>
               <Card
                 className="col mt-3 shadow p-3 mb-3 bg-body rounded"

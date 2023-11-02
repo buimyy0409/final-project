@@ -77,7 +77,7 @@ const WalletScreen = () => {
     <>
       <div className="container-fluid">
         <Card style={{ marginRight: "20px", marginBottom: "10px" }}>
-        <UpdateWallet totalReceipt={totalReceipt} totalPayment={totalPayment} />
+        <UpdateWallet receipt={receipt} payment={payment} />
         </Card>
 
         <div className="container row">
