@@ -19,7 +19,7 @@ const Dashboard = ({totalWallet}) => {
   return (
     <>
       <div className="container-fluid" style={{ backgroundColor: isDarkMode ? "#333" : "#edf1f6" }}>
-        <HeaderComponent />
+        <HeaderComponent style={{ backgroundColor: isDarkMode ? "#333" : "#edf1f6" }}/>
         <div className="row mt-2">
           <div className="col-7">
           <h4 style={{ color: isDarkMode ? "white" : "black" }}>Dashboard</h4>
@@ -72,11 +72,8 @@ const Dashboard = ({totalWallet}) => {
               <Card className="col mt-3 shadow p-3 mb-3 bg-body rounded">
                 <WalletMoney size="34" color="#FF8A65" /> <br />
                 <p style={{ fontSize: "18px", color: isDarkMode ? "black" : "black" }}>Check your monthly money</p>
-                <span><UpdateWallet
-                  receipt={receipt}
-                  payment={payment}
-                  totalWallet={totalWallet}
-                /></span>
+                <span><UpdateWallet receipt={receipt} payment={payment} />
+              </span>
               </Card>
               <Card
                 className="col mt-3 shadow p-3 mb-3 bg-body rounded"
