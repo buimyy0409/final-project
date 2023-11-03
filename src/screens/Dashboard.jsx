@@ -11,20 +11,24 @@ const Dashboard = ({totalWallet}) => {
   const [receipt, setReceipt] = useState([]);
 
   const [payment, setPayment] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
   return (
     <>
-      <div className="container-fluid" style={{ backgroundColor: "#edf1f6" }}>
+      <div className="container-fluid" style={{ backgroundColor: isDarkMode ? "#333" : "#edf1f6" }}>
         <HeaderComponent />
         <div className="row mt-2">
           <div className="col-7">
-            <h4>Dashboard</h4>
-            <Card className="shadow p-2 bg-body rounded">
-              <div className="row">
+          <h4 style={{ color: isDarkMode ? "white" : "black" }}>Dashboard</h4>
+            <Card className={`shadow p-2 bg-body rounded ${isDarkMode ? "text-dark" : ""}`}>
+                <div className="row">
                 <div className="col">
-                  <h1 style={{ fontSize: "60px" }}>Hi, Imei!</h1>
-                  <h5>What are you doing?</h5>
-                  <h5>About our wallet</h5>
+                  <h1 style={{ fontSize: "60px", color: isDarkMode ? "black" : "black" }}>Hi, Imei!</h1>
+                  <h5 style={{ color: isDarkMode ? "black" : "white" }}>In dark mode</h5>
+                
                   <div
                     style={{
                       display: "flex",
@@ -67,7 +71,7 @@ const Dashboard = ({totalWallet}) => {
             <div className="row mt-2" style={{ padding: "10px" }}>
               <Card className="col mt-3 shadow p-3 mb-3 bg-body rounded">
                 <WalletMoney size="34" color="#FF8A65" /> <br />
-                <p style={{ fontSize: "18px" }}>Check your monthly money</p>
+                <p style={{ fontSize: "18px", color: isDarkMode ? "black" : "black" }}>Check your monthly money</p>
                 <span><UpdateWallet
                   receipt={receipt}
                   payment={payment}
@@ -79,14 +83,13 @@ const Dashboard = ({totalWallet}) => {
                 style={{ marginLeft: "10px" }}
               >
                 <Setting3 size="34" color="#334eac" /> <br />
-                <p style={{ fontSize: "18px" }}>
-                  Apply settings to your wallet
-                </p>
+                <p style={{ fontSize: "18px", color: isDarkMode ? "black" : "black" }}>Apply settings to your wallet</p>
+
               </Card>
             </div>
           </div>
           <div className="col">
-            <h4>Calendar</h4>
+          <h4 style={{ color: isDarkMode ? "white" : "black" }}>Calendar</h4>
             <div className="col shadow p-3 bg-body rounded">
               <CalendarComponent />
             </div>
@@ -103,6 +106,9 @@ const Dashboard = ({totalWallet}) => {
             </Card>
           </div>
         </div>
+        <button onClick={toggleTheme} className={`btn ${isDarkMode ? "btn-light" : "btn-dark"}`}>
+          {isDarkMode ? "Chuyển sang chế độ sáng" : "Chuyển sang chế độ tối"}
+        </button>
       </div>
     </>
   );
